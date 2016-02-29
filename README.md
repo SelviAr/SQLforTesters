@@ -33,7 +33,8 @@ VALUES ('Mike', 'J', 'M')
 INSERT INTO Person ( FirstName, LastName, Age, Sex, AMIAWESOME)
 SELECT ( FirstName, LastName, Age, Sex, AMIAWESOME)
 FROM SOME_OTHER_TABLE
-'''
+```
+
 ### SQL Statement
 
 ### Delete Statement
