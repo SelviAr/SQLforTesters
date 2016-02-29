@@ -2,6 +2,13 @@
 This is SQL code snippets
 
 
+##Table of Contents
+
+- [Create Statement](#Create-Statements)
+- [SELECT(#SQL Statement)
+    - [Get all data](#Firefox-WebDriver)
+    - [Filtered Data](#Chrome-WebDriver)
+ 
 ### Create Statements
 ```SQL
 -- Create new Customer table to store all the constomer information
