@@ -3,7 +3,7 @@ This is SQL code snippets
 
 
 ### Create Statements
-'''' SQL
+```SQL
 -- Create new Customer table to store all the constomer information
 CREATE TABLE Customer(
 PersonID INT IDENTITY(1,1),
@@ -14,7 +14,7 @@ Age INT,
 Sex CHAR(10),
 ActiveUser bit
 )
-''''
+```
 
 ### Insert Statements
 
