@@ -99,6 +99,58 @@ UPDATE ATTENDEE SET VIP = 1 WHERE ATTENDEE_ID IN (3,4)
 
 ```
 
+
+### Group Statements
+```SQL
+
+SELECT COUNT(*) AS record_count FROM Person;
+
+SELECT COUNT(*) AS record_count FROM Person  WHERE age > 36
+
+
+
+SELECT year, COUNT(*) AS record_count FROM station_data
+WHERE tornado = 1
+GROUP BY year;
+
+
+
+SELECT year, month, COUNT(*) AS record_count FROM station_data
+WHERE tornado = 1
+GROUP BY year, month
+ORDER BY year, month
+
+
+SELECT month, AVG(temp) as avg_temp
+FROM station_data
+WHERE year >= 2000
+GROUP BY month
+
+
+SELECT year, SUM(snow_depth) as total_snow
+FROM station_data
+WHERE year >= 2000
+GROUP BY year
+
+
+```
+
+
+### Inbuild Function
+```SQL
+ SUM(), MAX(), MIN(), AVG(), and COUNT() 
+```
+
+
+### Join Statements
+```SQL
+FROM CUSTOMER INNER JOIN CUSTOMER_ORDER
+ON CUSTOMER.CUSTOMER_ID = CUSTOMER_ORDER.CUSTOMER_ID
+
+
+```
+
+
 ### Views
 
 
