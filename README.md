@@ -2,13 +2,13 @@
 This is SQL code snippets
 
 
-## Create Statements
+### Create Statements
 
 
-## Insert Statements
+### Insert Statements
 
-## SQL Statement
+### SQL Statement
 
-## Delete Statement
+### Delete Statement
 
-## Update Statement
+### Update Statement
