@@ -38,7 +38,7 @@ CREATE TABLE Addresses(
 
 ```
 
-### Insert Statements
+### Drop Table Statements
 ```SQL
 
 --Delete the Customer table from the databse
