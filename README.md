@@ -11,8 +11,8 @@ This is SQL code snippets
 - [Delete Statement](#delete-statements)
 - [Group Statement](#group-statements)
 - [Orderby Statement](#orderby-statements)
-- [join Statement](#join-statements)
-- [views](#views)
+- [Join Statement](#join-statements)
+- [Views](#views)
 - [Custom Functions](#custom-functions)
 - [Stored Procedure](#stored-procedure)
  
