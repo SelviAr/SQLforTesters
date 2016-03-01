@@ -77,7 +77,7 @@ FROM Customers
 
 ```
 
-### SQL Statement
+### SELECT Statements
 ```SQL
 
 -- Get all the data from the Customers table
@@ -134,7 +134,7 @@ SELECT DISTINCT FirstName FROM Customers
 
 ```
 
-### Delete Statement
+### Delete Statements
 ```SQL
 
 -- Delete all the data from the table Customers
@@ -145,7 +145,7 @@ DELETE FROM Customers WHERE Age > 40 AND Sex = 'F'
 ```
 
 
-### Update Statement
+### Update Statements
 ```SQL
 
 UPDATE Customers SET FirstName = UPPER(FirstName)
