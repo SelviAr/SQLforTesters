@@ -4,10 +4,17 @@ This is SQL code snippets
 
 ##Table of Contents
 
-- [Create Statement](#Create-Statements)
-- [SELECT(#SQL Statement)
-    - [Get all data](#Firefox-WebDriver)
-    - [Filtered Data](#Chrome-WebDriver)
+- [Create Statement](#create-statements)
+- [Drop Table Statements](#drop-table-statements)
+- [Insert Statement](#insert-statements)
+- [Select Statement](#select-statements)
+- [Delete Statement](#delete-statements)
+- [Group Statement](#group-statements)
+- [Orderby Statement](#orderby-statements)
+- [join Statement](#join-statements)
+- [views](#views)
+- [Custom Functions](#custom-functions)
+- [Stored Procedure](#stored-procedure)
  
 ### Create Statements
 ```SQL
