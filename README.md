@@ -1,5 +1,6 @@
 # SQLforTesters
-This is my SQL code snippets
+
+This is my SQL code snippets - Selvi.
 
 
 ##Table of Contents
