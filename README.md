@@ -26,8 +26,8 @@ CREATE TABLE Customers(
 	FirstName	NVARCHAR(30) NOT NULL,
 	LastName	NVARCHAR(30) NOT NULL,
 	DateofBith	DATETIME,
-	Age			INT,
-	Sex			NCHAR(1),
+	Age		INT,
+	Sex		NCHAR(1),
 	ActiveUser	BIT,
 	CreatedDate DATETIME DEFAULT GETDATE()
 )
@@ -35,7 +35,7 @@ CREATE TABLE Customers(
 -- This table is used to store the customers address
 CREATE TABLE Addresses(
 	AddressID	INT IDENTITY(1,1) PRIMARY KEY,
-	CustomerID	INT NOT NULL,
+	CustomerID	INT,
 	AddressType	NVARCHAR(10),	--HOME, BUSINESS
 	FullAddress	NVARCHAR(50) NOT NULL,
 	City		NVARCHAR(30),
@@ -70,12 +70,16 @@ VALUES ('Selvi', 'Aru', '10-10-1985', 30, 'F', 1)
 INSERT INTO Customers ( FirstName, LastName, DateofBith, Age, Sex, ActiveUser) VALUES 
 ('Vikram', 'Pal', '07-05-2005', 10, 'M', 1),
 ('Akshi', 'Pal', '05-04-2009', 7, 'F', 1),
-('Mike', 'J', '05-04-1975', 40, 'M', 1)
-
+('Mike', 'J', '05-04-1975', 40, 'M', 1),
+('Jack', 'Chan', '05-14-1980', 35, 'M', 0)
 
 INSERT INTO Addresses (CustomerID, AddressType, FullAddress, City, Zipcode, StateCode) VALUES 
 (1, 'HOME', '100 Mowry Ave', 'Fremont', '94536', 'CA'),
-(1, 'BUSINESS', '100 Fremont Blvd', 'Fremont', '94538', 'CA')	
+(1, 'BUSINESS', '111 Fremont Blvd', 'Fremont', '94538', 'CA'),	
+(2, 'HOME', '130 Main Ave', 'Fremont', '94536', 'CA'),
+(3, 'BUSINESS', '1044 Fremont Blvd', 'Fremont', '94538', 'CA'),
+(5, 'HOME', '10330 Mowry Ave', 'Fremont', '94536', 'CA'),
+(NULL, 'BUSINESS', '1440 Eggers ST', 'Fremont', '94536', 'CA')	
 
 
 --Moving data from one table to another table
@@ -178,8 +182,7 @@ SELECT AVG(Age) AS record_count FROM Customers
 
 SELECT UPPER(FirstName) AS FirstName, LastName FROM Customers
 SELECT FirstName, UPPER(FirstName) AS LengthofTheName  FROM Customers
-SELECT FirstName, UPPER(FirstName) AS LengthofTheName  FROM Customers
- 
+
 -- Get all the customer who's firstname contains at least 6 characters
 SELECT * FROM Customers WHERE LEN(FirstName) > 5 --Using function in the WHERE condition
 
@@ -189,7 +192,8 @@ SELECT * FROM Customers WHERE LEN(FirstName) > 5 --Using function in the WHERE c
 ### Group Statements
 ```SQL
 
-SELECT Sex, COUNT(*) AS record_count FROM Customers
+SELECT Sex, COUNT(*) AS record_count 
+FROM Customers
 WHERE  Age > 10
 GROUP BY Sex;
 
@@ -199,10 +203,12 @@ GROUP BY Sex;
 
 ```SQL
 
-SELECT * FROM Customers 
+SELECT * 
+FROM Customers 
 ORDER BY FirstName 
 
-SELECT * FROM Customers
+SELECT * 
+FROM Customers
 ORDER BY FirstName ASC, LastName DESC;
 
 ```
@@ -213,29 +219,17 @@ ORDER BY FirstName ASC, LastName DESC;
 
 --SQL INNER JOIN
 SELECT * FROM Customers  INNER JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
-
+--SQL INNER JOIN with Alias name
 SELECT * FROM Customers C INNER JOIN Addresses A ON C.CustomerID = A.CustomerID
 
 --SQL LEFT JOIN 
-SELECT Customers.CustomerName, Orders.OrderID
-FROM Customers
-LEFT JOIN Orders
-ON Customers.CustomerID=Orders.CustomerID
-ORDER BY Customers.CustomerName;
+SELECT * FROM Customers  LEFT JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
 
 --SQL RIGHT JOIN
-SELECT Orders.OrderID, Employees.FirstName
-FROM Orders
-RIGHT JOIN Employees
-ON Orders.EmployeeID=Employees.EmployeeID
-ORDER BY Orders.OrderID;
+SELECT * FROM Customers  RIGHT JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
 
 --SQL FULL OUTER JOIN
-SELECT Customers.CustomerName, Orders.OrderID
-FROM Customers
-FULL OUTER JOIN Orders
-ON Customers.CustomerID=Orders.CustomerID
-ORDER BY Customers.CustomerName;
+SELECT * FROM Customers FULL OUTER JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
 
 --SQL UNION
 SELECT column_name(s) FROM FremontCustomers
