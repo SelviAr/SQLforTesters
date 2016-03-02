@@ -283,7 +283,7 @@ DROP VIEW view_name
 ```
 
 
-### Custom Functions
+### User Defined Functions
 ```SQL
 -- User defined function to calculate age for the given date
 CREATE FUNCTION dbo.CalculateAge (@DateofBirth DateTime)
