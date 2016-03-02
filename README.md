@@ -284,24 +284,31 @@ UPDATE Customers SET ActiveUser = 0 WHERE Age < 10
 
 
 ### Views
+
 ```SQL
---Create view
-CREATE VIEW view_name
+
+--Create view to return Customers with Address data
+CREATE VIEW VW_CustomerswithAddress
 AS
-SELECT column_name(s)
-FROM table_name
-WHERE condition
+SELECT 
+C.FirstName + ' ' + C.LastName AS FullName,
+Age,
+A.FullAddress	 + ' ' + A.City  + ' ' + A.Zipcode + ' ' + A.StateCode as FullAddressWithCity
+FROM Customers C INNER JOIN Addresses A ON C.CustomerID = A.CustomerID
 
---Run the view
-SELECT * FROM view_name
+--Get the data by running VW_CustomerswithAddress view
+SELECT * FROM VW_CustomerswithAddress
 
---Delete VIEW
-DROP VIEW view_name
+--Delete VW_CustomerswithAddress
+DROP VIEW VW_CustomerswithAddress
+
 ```
 
 
 ### User Defined Functions
+
 ```SQL
+
 -- User defined function to calculate age for the given date
 CREATE FUNCTION dbo.CalculateAge (@DateofBirth DateTime)
 RETURNS INT
@@ -319,10 +326,12 @@ GO
 SELECT dbo.CalculateAge ('01/01/1976')
 
 UPDATE Customers SET Age = dbo.CalculateAge (DateofBirth)
+
 ```
 
 
 ### Stored Procedure
+
 ```SQL
 
 CREATE PROCEDURE dbo.ExportCustomersData
