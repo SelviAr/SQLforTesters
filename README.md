@@ -9,12 +9,13 @@ This is my SQL code snippets - Selvi.
 - [Drop Table Statements](#drop-table-statements)
 - [Insert Statement](#insert-statements)
 - [Select Statement](#select-statements)
-- [Delete Statement](#delete-statements)
-- [Group Statement](#group-statements)
-- [Orderby Statement](#orderby-statements)
 - [Join Statement](#join-statements)
+- [Orderby Statement](#orderby-statements)
+- [Group Statement](#group-statements)
+- [Delete Statement](#delete-statements)
+- [Update Statement](#Update-statements)
 - [Views](#views)
-- [Custom Functions](#custom-functions)
+- [User Defined Functions](#user-defined-functions)
 - [Stored Procedure](#stored-procedure)
  
 ### Create Statements
