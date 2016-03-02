@@ -82,7 +82,7 @@ INSERT INTO Addresses (CustomerID, AddressType, FullAddress, City, Zipcode, Stat
 (NULL, 'BUSINESS', '1440 Eggers ST', 'Fremont', '94536', 'CA')	
 
 
---Moving data from one table to another table
+--Moving data from one table to another table, both table should exist
 INSERT INTO Customers_Temp (FirstName, LastName, DateofBith, Age, Sex )
 SELECT FirstName, LastName, DateofBith, Age, Sex
 FROM Customers
@@ -126,11 +126,19 @@ SELECT * FROM Customers WHERE age > 36 AND FirstName = 'Selvi' --AND Condition
 -- Get all the customer' who's age older than 36 or the female customers 
 SELECT * FROM Customers WHERE age > 36 OR Sex = 'F'		--OR Condition
 
+-- Use AND and OR
+SELECT * FROM Customers WHERE (age > 36 OR Sex = 'F') AND FirstName = 'Mike'	--AND OR Condition
+
 -- Get all the customer who's age is 20 or 30 or 40
 SELECT * FROM Customers WHERE Age IN (20, 30, 40)		-- IN Condition
 
 -- Get all the customer who's age is not 20 or 30 or 40
 SELECT * FROM Customers WHERE Age NOT IN (20, 30, 40)	-- NOT IN Condition
+
+-- Get all the customers who's age between 29 and 40
+SELECT * 
+FROM Customers
+WHERE Age BETWEEN 29 AND 40
 
 --Get all aweome user
 SELECT * FROM Customers WHERE ActiveUser = 1
@@ -143,6 +151,17 @@ SELECT TOP 50 PERCENT * FROM Customers;
 
 --Get list of unique value from the column 
 SELECT DISTINCT FirstName FROM Customers
+
+--Get all the addresses which doesn't linked to any customers
+SELECT * FROM Addresses  WHERE CustomerID IS NULL	--SQL IS NULL
+
+--Get all the addresses which linked to any customers
+SELECT * FROM Addresses  WHERE CustomerID IS NOT NULL	--SQL IS NOT NULL
+
+-- select all the rows from the customers table and create new table and copy it
+SELECT *
+INTO Customers_NewTable 
+FROM Customers
 
 ```
 
@@ -192,10 +211,18 @@ SELECT * FROM Customers WHERE LEN(FirstName) > 5 --Using function in the WHERE c
 ### Group Statements
 ```SQL
 
-SELECT Sex, COUNT(*) AS record_count 
+SELECT Sex, COUNT(Sex) AS record_count 
 FROM Customers
 WHERE  Age > 10
 GROUP BY Sex;
+
+
+--HAVING 
+SELECT Sex, COUNT(Sex)
+FROM Customers
+WHERE ActiveUser = 1
+GROUP BY Sex
+HAVING COUNT(Sex) > 1 -- WHERE keyword could not be used with aggregate functions
 
 ```
 
