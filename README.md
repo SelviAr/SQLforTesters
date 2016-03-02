@@ -179,6 +179,15 @@ SELECT * FROM Customers  INNER JOIN Addresses ON Customers.CustomerID = Addresse
 --SQL INNER JOIN with Alias name
 SELECT * FROM Customers C INNER JOIN Addresses A ON C.CustomerID = A.CustomerID
 
+--SQL INNER JOIN with Selected columns
+SELECT 
+C.CustomerID,
+C.Firstname,
+C.LastName,
+C.Age,
+A.FullAddress + ' ' + A.CIty AS FullAddressWithCity
+FROM Customers C INNER JOIN Addresses A ON C.CustomerID = A.CustomerID
+
 --SQL LEFT JOIN 
 SELECT * FROM Customers  LEFT JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
 
