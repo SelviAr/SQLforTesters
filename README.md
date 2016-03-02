@@ -6,18 +6,20 @@ This is my SQL code snippets - Selvi.
 ##Table of Contents
 
 - [Create Statement](#create-statements)
-- [Drop Table Statements](#drop-table-statements)
+- [Drop Table Statement](#drop-table-statements)
 - [Insert Statement](#insert-statements)
 - [Select Statement](#select-statements)
 - [Join Statement](#join-statements)
 - [Orderby Statement](#orderby-statements)
 - [Group Statement](#group-statements)
+- [Inbuild SQL Functions](#inbuild-sql-functions)
 - [Delete Statement](#delete-statements)
 - [Update Statement](#Update-statements)
 - [Views](#views)
-- [User Defined Functions](#user-defined-functions)
+- [User Defined Function](#user-defined-functions)
 - [Stored Procedure](#stored-procedure)
  
+
 ### Create Statements
 ```SQL
 
@@ -46,6 +48,7 @@ CREATE TABLE Addresses(
 )
 
 ```
+
 
 ### Drop Table Statements
 ```SQL
@@ -89,6 +92,7 @@ SELECT FirstName, LastName, DateofBith, Age, Sex
 FROM Customers
 
 ```
+
 
 ### SELECT Statements
 ```SQL
@@ -166,25 +170,65 @@ FROM Customers
 
 ```
 
-### Delete Statements
+
+### Join Statements
 ```SQL
 
--- Delete all the data from the table Customers
-DELETE FROM Customers
+--SQL INNER JOIN
+SELECT * FROM Customers  INNER JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
+--SQL INNER JOIN with Alias name
+SELECT * FROM Customers C INNER JOIN Addresses A ON C.CustomerID = A.CustomerID
 
-DELETE FROM Customers WHERE Age > 40 AND Sex = 'F'
+--SQL LEFT JOIN 
+SELECT * FROM Customers  LEFT JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
+
+--SQL RIGHT JOIN
+SELECT * FROM Customers  RIGHT JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
+
+--SQL FULL OUTER JOIN
+SELECT * FROM Customers FULL OUTER JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
+
+--SQL UNION
+SELECT column_name(s) FROM FremontCustomers
+UNION
+SELECT column_name(s) FROM SanjoseCustomers
 
 ```
 
 
-### Update Statements
+### Orderby Statements
+
 ```SQL
 
-UPDATE Customers SET FirstName = UPPER(FirstName)
+SELECT * 
+FROM Customers 
+ORDER BY FirstName 
 
-UPDATE Customers SET ActiveUser = 0 WHERE Age < 10
+SELECT * 
+FROM Customers
+ORDER BY FirstName ASC, LastName DESC;
 
 ```
+
+
+### Group Statements
+```SQL
+
+SELECT Sex, COUNT(Sex) AS record_count 
+FROM Customers
+WHERE  Age > 10
+GROUP BY Sex;
+
+
+--HAVING 
+SELECT Sex, COUNT(Sex)
+FROM Customers
+WHERE ActiveUser = 1
+GROUP BY Sex
+HAVING COUNT(Sex) > 1 -- WHERE keyword could not be used with aggregate functions
+
+```
+
 
 ### Inbuild SQL Functions
 ```SQL
@@ -209,60 +253,23 @@ SELECT * FROM Customers WHERE LEN(FirstName) > 5 --Using function in the WHERE c
 ```
 
 
-### Group Statements
+### Delete Statements
 ```SQL
 
-SELECT Sex, COUNT(Sex) AS record_count 
-FROM Customers
-WHERE  Age > 10
-GROUP BY Sex;
+-- Delete all the data from the table Customers
+DELETE FROM Customers
 
-
---HAVING 
-SELECT Sex, COUNT(Sex)
-FROM Customers
-WHERE ActiveUser = 1
-GROUP BY Sex
-HAVING COUNT(Sex) > 1 -- WHERE keyword could not be used with aggregate functions
-
-```
-
-### Orderby Statements
-
-```SQL
-
-SELECT * 
-FROM Customers 
-ORDER BY FirstName 
-
-SELECT * 
-FROM Customers
-ORDER BY FirstName ASC, LastName DESC;
+DELETE FROM Customers WHERE Age > 40 AND Sex = 'F'
 
 ```
 
 
-### Join Statements
+### Update Statements
 ```SQL
 
---SQL INNER JOIN
-SELECT * FROM Customers  INNER JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
---SQL INNER JOIN with Alias name
-SELECT * FROM Customers C INNER JOIN Addresses A ON C.CustomerID = A.CustomerID
+UPDATE Customers SET FirstName = UPPER(FirstName)
 
---SQL LEFT JOIN 
-SELECT * FROM Customers  LEFT JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
-
---SQL RIGHT JOIN
-SELECT * FROM Customers  RIGHT JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
-
---SQL FULL OUTER JOIN
-SELECT * FROM Customers FULL OUTER JOIN Addresses ON Customers.CustomerID = Addresses.CustomerID
-
---SQL UNION
-SELECT column_name(s) FROM FremontCustomers
-UNION
-SELECT column_name(s) FROM SanjoseCustomers
+UPDATE Customers SET ActiveUser = 0 WHERE Age < 10
 
 ```
 
@@ -305,6 +312,7 @@ SELECT dbo.CalculateAge ('01/01/1976')
 UPDATE Customers SET Age = dbo.CalculateAge (DateofBirth)
 ```
 
+
 ### Stored Procedure
 ```SQL
 
@@ -328,6 +336,5 @@ GO
 -- Or
 EXECUTE dbo.ExportCustomersData @FirstName = N'Selvi', @LastName = N'Arm';
 GO
-
 
 ```
