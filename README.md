@@ -28,6 +28,7 @@ CREATE TABLE Customers(
 	CustomerID	INT IDENTITY(1,1) PRIMARY KEY,
 	FirstName	NVARCHAR(30) NOT NULL,
 	LastName	NVARCHAR(30) NOT NULL,
+	NativeName	NVARCHAR(30) NOT NULL,
 	DateofBith	DATETIME,
 	Age		INT,
 	Sex		NCHAR(1),
@@ -67,10 +68,9 @@ DROP TABLE Addresses
 
 -- Create data in the Customers table using INSERT statement
 -- Use INSERT statement to save the data in the Customers table
-INSERT INTO Customers ( FirstName, LastName, DateofBith, Age, Sex, ActiveUser) 
-VALUES ('Selvi', 'Aru', '10-10-1985', 30, 'F', 1)
-
---Multiple INSERTs
+INSERT INTO Customers ( FirstName, LastName, DateofBith, Age, Sex, ActiveUser,NativeName) 
+VALUES ('Selvi', 'Aru', '10-10-1985', 30, 'F', 1,N'செல்வி');
+-Multiple INSERTs
 INSERT INTO Customers ( FirstName, LastName, DateofBith, Age, Sex, ActiveUser) VALUES 
 ('Vikram', 'Pal', '07-05-2005', 10, 'M', 1),
 ('Akshi', 'Pal', '05-04-2009', 7, 'F', 1),
