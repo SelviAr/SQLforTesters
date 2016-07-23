@@ -356,3 +356,6 @@ EXECUTE dbo.ExportCustomersData @FirstName = N'Selvi', @LastName = N'Arm';
 GO
 
 ```
+
+![joins](https://s-media-cache-ak0.pinimg.com/564x/b0/3d/67/b03d6794fb787492bea0f41a8144a37d.jpg)
+
