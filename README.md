@@ -1,4 +1,7 @@
+
 # SQLforTesters
+
+http://www.sql-tutorial.net/sql-cheat-sheet.pdf
 
 This is my SQL code snippets - Selvi.
 
