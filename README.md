@@ -1,4 +1,4 @@
-
+https://www.slideshare.net/tlvd/top-40-sql-queries-for-testers
 # SQLforTesters
 
 http://www.sql-tutorial.net/sql-cheat-sheet.pdf
