@@ -33,8 +33,8 @@ CREATE TABLE Customers(
 	LastName	NVARCHAR(30) NOT NULL,
 	NativeName	NVARCHAR(30) NOT NULL,
 	DateofBith	DATETIME,
-	Age		INT,
-	Sex		NCHAR(1),
+	Age			INT,
+	Gender		NCHAR(1),
 	ActiveUser	BIT,
 	CreatedDate DATETIME DEFAULT GETDATE()
 )
@@ -42,7 +42,7 @@ CREATE TABLE Customers(
 -- This table is used to store the customers address
 CREATE TABLE Addresses(
 	AddressID	INT IDENTITY(1,1) PRIMARY KEY,
-	CustomerID	INT,
+	CustomerID	INT FOREIGN KEY REFERENCES Customers(CustomerID),
 	AddressType	NVARCHAR(10),	--HOME, BUSINESS
 	FullAddress	NVARCHAR(50) NOT NULL,
 	City		NVARCHAR(30),
@@ -50,6 +50,8 @@ CREATE TABLE Addresses(
 	StateCode	NCHAR(2),
 	CreatedDate DATETIME DEFAULT GETDATE()
 )
+
+
 
 ```
 
