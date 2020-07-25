@@ -73,22 +73,23 @@ DROP TABLE Addresses
 
 -- Create data in the Customers table using INSERT statement
 -- Use INSERT statement to save the data in the Customers table
-INSERT INTO Customers ( FirstName, LastName, DateofBith, Age, Sex, ActiveUser,NativeName) 
+INSERT INTO Customers ( FirstName, LastName, DateofBith, Age, Gender, ActiveUser,NativeName) 
 VALUES ('Selvi', 'Aru', '10-10-1985', 30, 'F', 1,N'செல்வி');
--Multiple INSERTs
-INSERT INTO Customers ( FirstName, LastName, DateofBith, Age, Sex, ActiveUser) VALUES 
-('Vikram', 'Pal', '07-05-2005', 10, 'M', 1),
-('Akshi', 'Pal', '05-04-2009', 7, 'F', 1),
-('Mike', 'J', '05-04-1975', 40, 'M', 1),
-('Jack', 'Chan', '05-14-1980', 35, 'M', 0)
 
+--Multiple INSERTs
+INSERT INTO Customers ( FirstName, LastName, DateofBith, Age, Gender, ActiveUser, NativeName) VALUES 
+('Vikram', 'Pal', '07-05-2005', 10, 'M', 1,'Vik'),
+('Akshi', 'Pal', '05-04-2009', 7, 'F', 1,'Ah'),
+('Mike', 'J', '05-04-1975', 40, 'M', 1,'Mike'),
+('Jack', 'Chan', '05-14-1980', 35, 'M', 0,'Jack')
+
+-- Address data for customer
 INSERT INTO Addresses (CustomerID, AddressType, FullAddress, City, Zipcode, StateCode) VALUES 
 (1, 'HOME', '100 Mowry Ave', 'Fremont', '94536', 'CA'),
 (1, 'BUSINESS', '111 Fremont Blvd', 'Fremont', '94538', 'CA'),	
-(2, 'HOME', '130 Main Ave', 'Fremont', '94536', 'CA'),
-(3, 'BUSINESS', '1044 Fremont Blvd', 'Fremont', '94538', 'CA'),
-(5, 'HOME', '10330 Mowry Ave', 'Fremont', '94536', 'CA'),
-(NULL, 'BUSINESS', '1440 Eggers ST', 'Fremont', '94536', 'CA')	
+(7, 'HOME', '130 Main Ave', 'Fremont', '94536', 'CA'),
+(8, 'BUSINESS', '1044 Fremont Blvd', 'Fremont', '94538', 'CA'),
+(9, 'HOME', '10330 Mowry Ave', 'Fremont', '94536', 'CA')	
 
 
 --Moving data from one table to another table, both table should exist
